@@ -4,7 +4,7 @@
 #include <functional>
 
 int main() {
-  std::function<unsigned long long(unsigned long long)> factorial = [&](auto n_) -> unsigned long long {
+  std::function<uint64_t(uint64_t)> factorial = [&](auto n_) -> uint64_t {
     return n_ <= 1 ? 1 : n_ * factorial(n_ - 1);
   };
 
@@ -15,7 +15,7 @@ int main() {
             << '\n';
   std::cout << std::endl;
 
-  std::function<unsigned long long(unsigned long long)> fibonacci = [&](unsigned long long n_) -> unsigned long long {
+  std::function<uint64_t(uint64_t)> fibonacci = [&](uint64_t n_) -> uint64_t {
     auto rf = n_ < 2 ? n_ : fibonacci(n_ - 2) + fibonacci(n_ - 1);
     return rf;
   };
@@ -24,7 +24,7 @@ int main() {
   // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811
   auto constexpr fm(30);
   std::cout << "fibonacci sequence up to " << fm << ":\n";
-  for (int nn = 0; nn < fm + 1; ++nn) {
+  for (auto nn = 0; nn < fm + 1; ++nn) {
     auto fn = fibonacci(nn);
     std::cout << std::setw(2) << nn
               << std::setw(10) << fn
