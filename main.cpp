@@ -10,7 +10,10 @@ int main() {
 
   auto constexpr fx(20);
   auto ff = factorial(fx);
-  std::cout << "!" << fx << ": " << ff << '\n' << std::endl;
+  std::cout << "\n" << std::setw(3) << fx
+            << "!: " << std::setw(20) << ff
+            << '\n';
+  std::cout << std::endl;
 
   std::function<unsigned long long(unsigned long long)> fibonacci = [&](unsigned long long n_) -> unsigned long long {
     auto rf = n_ < 2 ? n_ : fibonacci(n_ - 2) + fibonacci(n_ - 1);
